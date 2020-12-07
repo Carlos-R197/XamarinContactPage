@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinContactPage.ContactsPage"
+             x:Name="contactsPage"
+             Title="Contacts">
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Order="Primary" Text="Add" Priority="0" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" CachingStrategy="RecycleElement" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell TextColor="DarkBlue" Text="{Binding Name}" Detail="{Binding Number}">
+                    <TextCell.ContextActions>
+                        <MenuItem Text="More" Command="{Binding BindingContext.MoreCommand, Source={x:Reference contactsPage}}" CommandParameter=""/>
+                        <MenuItem Text="Delete" Command="{Binding BindingContext.DeleteCommand, Source={x:Reference contactsPage}}" IsDestructive="True"/>    
+                    </TextCell.ContextActions>
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>

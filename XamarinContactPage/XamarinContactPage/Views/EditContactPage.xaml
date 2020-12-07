@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinContactPage.Views.EditContactPage"
+             Title="Editing Contact">
+    <StackLayout>
+        <Entry Placeholder="Name" Text="{Binding Name}" Style="{StaticResource entryStyle}"/>
+        <Entry Placeholder="Number" Text="{Binding Number}" Style="{StaticResource entryStyle}" Keyboard="Numeric"/>
+
+        <Button Text="Save" TextColor="White" Command="{Binding EditContactCommand}"
+                Style="{StaticResource buttonStyle}"/>
+    </StackLayout>
+</ContentPage>
